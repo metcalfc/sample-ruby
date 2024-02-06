@@ -1,0 +1,26 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ruby
+{
+	"name": "Ruby",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/ruby:3-bullseye",
+
+	"portsAttributes": {
+		"9292": {
+			"label": "Application",
+			"onAutoForward": "openPreview"
+		}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bundle install",
+	"postAttachCommand": "bundle exec rackup",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Shopify.ruby-extensions-pack"
+			]
+		}
+	}
+}
